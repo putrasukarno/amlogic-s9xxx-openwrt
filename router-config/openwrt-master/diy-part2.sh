@@ -15,10 +15,10 @@
 # sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
 
 # Add the default password for the 'root' user（Change the empty password to 'password'）
-sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' package/base-files/files/etc/shadow
+# sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' package/base-files/files/etc/shadow
 
 # Correct translation for Transmission
-sed -i 's/发送/Transmission/g' feeds/luci/applications/luci-app-transmission/po/zh_Hans/transmission.po
+# sed -i 's/发送/Transmission/g' feeds/luci/applications/luci-app-transmission/po/zh_Hans/transmission.po
 
 # Modify ifname to device for dockerd
 # sed -i 's/ifname/device/g' feeds/packages/utils/dockerd/files/dockerd.init
@@ -72,19 +72,19 @@ sed -i 's/TARGET_rockchip/TARGET_rockchip\|\|TARGET_armvirt/g' package/lean/auto
 # ------------------------------- Other started -------------------------------
 #
 # Add luci-app-passwall
-svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
-rm -rf package/openwrt-passwall/{kcptun,xray-core} 2>/dev/null
+# svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
+# rm -rf package/openwrt-passwall/{kcptun,xray-core} 2>/dev/null
 
 # Add luci-app-openclash
 svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/openwrt-openclash
 pushd package/openwrt-openclash/tools/po2lmo && make && sudo make install 2>/dev/null && popd
 
 # Add luci-app-ssr-plus
-svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/openwrt-ssrplus
-rm -rf package/openwrt-ssrplus/luci-app-ssr-plus/po/zh_Hans 2>/dev/null
+# svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/openwrt-ssrplus
+# rm -rf package/openwrt-ssrplus/luci-app-ssr-plus/po/zh_Hans 2>/dev/null
 
 # Add luci-app-rclone
-svn co https://github.com/ElonH/Rclone-OpenWrt/trunk package/openWrt-rclone
+# svn co https://github.com/ElonH/Rclone-OpenWrt/trunk package/openWrt-rclone
 
 # Add luci-app-diskman
 svn co https://github.com/lisaac/luci-app-diskman/trunk/applications/luci-app-diskman package/openwrt-diskman/luci-app-diskman
@@ -92,7 +92,7 @@ svn co https://github.com/lisaac/luci-app-diskman/trunk/applications/luci-app-di
 #pushd package/openwrt-diskman/parted && mv -f Parted.Makefile Makefile 2>/dev/null && popd
 
 # Add luci-app-amlogic
-svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+# svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 
 # Apply patch
 # git apply ../router-config/patches/{0001*,0002*}.patch --directory=feeds/luci
